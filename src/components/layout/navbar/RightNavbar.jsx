@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const StyledUl = styled.ul`
-  width: 60%;
+  width: 80%;
   list-style: none;
   display: flex;
   align-items: center;
@@ -38,7 +38,14 @@ const StyledUl = styled.ul`
     width: 100%;
   }
 
-  @media (max-width: 502px) {
+  @media (max-width: 875px) {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+  }
+
+  @media (max-width: 610px) {
     flex-flow: column nowrap;
     background: ${(props) => props.theme.primary};
     background-color: ${(props) => props.theme.primary};
@@ -47,7 +54,7 @@ const StyledUl = styled.ul`
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
     width: 300px;
     gap: 60px;
     padding-top: 3.5rem;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import LeftNavbar from './LeftNavbar'
-import RightNavbar from './RightNavbar'
+import Burguer from './Burger'
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -10,13 +10,29 @@ const StyledNavbar = styled.nav`
   height: 50px;
   position: fixed;
   background-color: ${(props) => props.theme.primary};
+
+  @media (max-width: 875px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  @media (max-width: 360px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+  }
 `
 
 export default function Navbar() {
   return (
     <StyledNavbar>
       <LeftNavbar />
-      <RightNavbar />
+      <Burguer />
     </StyledNavbar>
   )
 }
