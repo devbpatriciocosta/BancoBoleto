@@ -1,10 +1,7 @@
+import Navbar from '../src/components/layout/navbar/Navbar'
 
 function HomePage() {
-  return (
-    <div>
-        <h1>Banco Boleto</h1>
-    </div>
-  )
+  return <Navbar />
 }
 
 export default HomePage
