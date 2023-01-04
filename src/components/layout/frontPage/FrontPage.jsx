@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import WelcomeCard from '../cards/WelcomeCard'
 
 const FrontPageContainer = styled.div`
   background-image: url('/MoneyTreeJpeg.jpg');
@@ -9,6 +10,18 @@ const FrontPageContainer = styled.div`
   height: 100vh;
 `
 
+const CardContainer = styled.div`
+  display: flex;
+`
+
 export default function FrontPage() {
-  return <FrontPageContainer />
+  return (
+    <>
+      <FrontPageContainer>
+        <CardContainer>
+          <WelcomeCard />
+        </CardContainer>
+      </FrontPageContainer>
+    </>
+  )
 }
