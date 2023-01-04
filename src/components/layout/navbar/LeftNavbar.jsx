@@ -14,7 +14,7 @@ const StyledUl = styled.ul`
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
       Geneva, Verdana, sans-serif;
-    color: ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.black};
   }
 
   li {
@@ -26,7 +26,7 @@ const StyledUl = styled.ul`
   li:after {
     content: '';
     position: absolute;
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.black};
     height: 2px;
     width: 0;
     left: 0;

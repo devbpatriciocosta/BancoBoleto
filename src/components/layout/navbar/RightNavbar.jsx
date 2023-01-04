@@ -14,7 +14,7 @@ const StyledUl = styled.ul`
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
       Geneva, Verdana, sans-serif;
-    color: ${(props) => props.theme.secondary};
+    color: ${(props) => props.theme.black};
   }
 
   li {
@@ -26,7 +26,7 @@ const StyledUl = styled.ul`
   li:after {
     content: '';
     position: absolute;
-    background-color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.black};
     height: 2px;
     width: 0;
     left: 0;
@@ -72,6 +72,11 @@ const StyledInputAccount = styled.input`
   border: none;
   border-radius: 50px;
   padding-left: 10px;
+  transition: 0.5s ease-in-out;
+
+  :hover {
+    box-shadow: 0 0 0 2px black;
+  }
 `
 
 const StyledInputDigit = styled.input`
@@ -80,6 +85,10 @@ const StyledInputDigit = styled.input`
   border: none;
   border-radius: 50px;
   padding-left: 8px;
+
+  :hover {
+    box-shadow: 0 0 0 2px black;
+  }
 `
 
 const StyledNavbarButton = styled.button`
@@ -89,6 +98,11 @@ const StyledNavbarButton = styled.button`
   border-radius: 50px;
   background-color: ${(props) => props.theme.secondary};
   cursor: pointer;
+  transition: 0.5s ease-in-out;
+
+  :hover {
+    box-shadow: 0 0 0 2px black;
+  }
 `
 
 export default function RightNavbar() {
