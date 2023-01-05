@@ -4,8 +4,8 @@ import IconImages from '../../iconImages/IconImages'
 import OpenCreateButton from '../../buttons/OpenCreateButton'
 
 const CardContainer = styled.div`
-  width: 70%;
-  height: 445px;
+  width: 290px;
+  min-height: 445px;
   border-radius: 20px;
   background-color: white;
   display: flex;
@@ -13,6 +13,7 @@ const CardContainer = styled.div`
   justify-content: space-between;
   flex-direction: column;
   padding: 20px;
+  gap: 30px;
 `
 
 const CardTitle = styled.div`
