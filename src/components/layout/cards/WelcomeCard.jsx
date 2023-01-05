@@ -8,8 +8,6 @@ const CardContainer = styled.div`
   height: 445px;
   border-radius: 20px;
   background-color: white;
-  margin-top: 120px;
-  margin-left: 900px;
   display: flex;
   align-items: center;
   justify-content: space-between;
