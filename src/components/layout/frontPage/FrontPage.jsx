@@ -11,10 +11,7 @@ const FrontPageContainer = styled.div`
 `
 
 const CardContainer = styled.div`
-  display: flex;
-  justify-content: right;
-  padding-top: 130px;
-  margin-right: 200px;
+  padding: 130px 0 0 900px;
 `
 
 export default function FrontPage() {

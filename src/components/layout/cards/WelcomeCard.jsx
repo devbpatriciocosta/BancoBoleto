@@ -4,7 +4,7 @@ import IconImages from '../../iconImages/IconImages'
 import OpenCreateButton from '../../buttons/OpenCreateButton'
 
 const CardContainer = styled.div`
-  width: 268px;
+  width: 70%;
   height: 445px;
   border-radius: 20px;
   background-color: white;
