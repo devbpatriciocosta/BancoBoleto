@@ -20,8 +20,17 @@ const StyledOpenCreateButton = styled.div`
     box-shadow: 0 5px #666;
     transform: translateY(2px);
   }
+
+  p {
+    font-weight: bold;
+    font-size: 20px;
+  }
 `
 
 export default function OpenCreateButton() {
-  return <StyledOpenCreateButton>Abra sua conta</StyledOpenCreateButton>
+  return (
+    <StyledOpenCreateButton>
+      <p>Abra sua conta</p>
+    </StyledOpenCreateButton>
+  )
 }
