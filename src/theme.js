@@ -2,7 +2,7 @@ const theme = {
   primary: '#92F981',
   secondary: '#FFFFFF',
   black: '#000000',
-  grey: '#d1d1d1'
+  grey: '#d9d9d9'
 }
 
 export default theme
