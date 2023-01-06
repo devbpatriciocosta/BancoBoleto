@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import SignInCard from '../../components/layout/cards/SignInCard'
 
 const FrontPageContainer = styled.div`

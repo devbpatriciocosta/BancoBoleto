@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import IconImages from '../../iconImages/IconImages'
@@ -59,7 +60,7 @@ export default function WelcomeCard() {
         <IconImages imageName="PiggyBank" type="svg" />
         <OpenCreateButton />
         <StyledDoLogin>
-          <a>Fazer login</a>
+          <Link href="/initialSignupPage">Faça seu cadastro!</Link>
         </StyledDoLogin>
       </CardContainer>
     </>

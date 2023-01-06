@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import OpenCreateButton from '../../buttons/OpenCreateButton'
@@ -52,7 +53,7 @@ export default function WelcomeCard() {
         <RegisterInput />
         <OpenCreateButton />
         <StyledDoLogin>
-          <a>Fazer login</a>
+          <Link href="/initialLoginPage">Fazer login</Link>
         </StyledDoLogin>
       </CardContainer>
     </>
