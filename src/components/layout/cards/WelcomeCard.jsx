@@ -20,10 +20,15 @@ const CardTitle = styled.div`
   width: 188px;
   height: 35px;
   border-radius: 20px;
-  background-color: #92f981;
+  background-color: ${(props) => props.theme.primary};
   display: flex;
   align-items: center;
   justify-content: center;
+
+  p {
+    font-size: 20px;
+    font-weight: bold;
+  }
 `
 
 const CardText = styled.div`
@@ -33,16 +38,29 @@ const CardText = styled.div`
   text-align: center;
 `
 
+const StyledDoLogin = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+`
+
 export default function WelcomeCard() {
   return (
     <>
       <CardContainer>
-        <CardTitle>Banco Seu Boleto</CardTitle>
+        <CardTitle>
+          <p>Banco Seu Boleto</p>
+        </CardTitle>
         <CardText>
           <h3>O internet banking pensado pra você</h3>
         </CardText>
         <IconImages imageName="PiggyBank" type="svg" />
         <OpenCreateButton />
+        <StyledDoLogin>
+          <a>Fazer login</a>
+        </StyledDoLogin>
       </CardContainer>
     </>
   )
