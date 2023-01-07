@@ -38,6 +38,13 @@ const StyledDoLogin = styled.div`
   justify-content: center;
   text-align: center;
   cursor: pointer;
+
+  a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+  }
 `
 
 export default function WelcomeCard() {
