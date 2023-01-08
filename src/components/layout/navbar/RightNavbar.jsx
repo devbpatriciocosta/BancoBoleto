@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import InputAccount from '../../inputs/InputAccount'
 import InputAgency from '../../inputs/InputAgency'
+import InputDigit from '../../inputs/InputDigit'
 
 const StyledUl = styled.ul`
   width: 80%;
@@ -70,18 +71,6 @@ const StyledUl = styled.ul`
   }
 `
 
-const StyledInputDigit = styled.input`
-  width: 26px;
-  height: 22px;
-  border: none;
-  border-radius: 50px;
-  padding-left: 8px;
-
-  :hover {
-    box-shadow: 0 0 0 2px black;
-  }
-`
-
 const StyledNavbarButton = styled.button`
   width: 58px;
   height: 22px;
@@ -117,7 +106,7 @@ export default function RightNavbar() {
       </li>
       <InputAgency />
       <InputAccount />
-      <StyledInputDigit></StyledInputDigit>
+      <InputDigit />
       <StyledNavbarButton>
         <Link href="/">Entrar</Link>
       </StyledNavbarButton>
