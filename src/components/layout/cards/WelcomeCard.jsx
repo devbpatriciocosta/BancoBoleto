@@ -15,11 +15,17 @@ const CardContainer = styled.div`
   flex-direction: column;
   padding: 20px;
   gap: 30px;
+
+  transition: 0.4s ease-in-out;
+
+  :hover {
+    transform: scale(1.1);
+  }
 `
 
 const CardTitle = styled.div`
-  width: 188px;
-  height: 35px;
+  width: 200px;
+  min-height: 35px;
   border-radius: 20px;
   background-color: ${(props) => props.theme.primary};
   display: flex;
