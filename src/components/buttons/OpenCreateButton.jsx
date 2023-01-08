@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Link from 'next/link'
 
 const StyledOpenCreateButton = styled.div`
   cursor: pointer;
@@ -30,7 +31,9 @@ const StyledOpenCreateButton = styled.div`
 export default function OpenCreateButton() {
   return (
     <StyledOpenCreateButton>
-      <p>Abra sua conta</p>
+      <Link href="/initialSignupPage">
+        <p>Cadastrar</p>
+      </Link>
     </StyledOpenCreateButton>
   )
 }
