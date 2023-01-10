@@ -4,10 +4,17 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #d4d4d4;
+  background-color: #fff;
+  box-shadow: 0 0 5px black;
   border-radius: 5px;
   padding: 5px 15px;
   width: 30%;
+
+  transition: 0.3s ease-in-out;
+
+  :hover {
+    transform: translateY(2px);
+  }
 
   @media (max-width: 750px) {
     width: 20%;
