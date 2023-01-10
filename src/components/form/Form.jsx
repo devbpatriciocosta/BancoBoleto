@@ -6,7 +6,7 @@ const FormContainer = styled.div`
   margin: 20px auto;
   width: 98%;
   background-color: #fff;
-  box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px black;
   border-radius: 5px;
   display: flex;
   justify-content: space-around;
@@ -30,7 +30,7 @@ const Input = styled.input`
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid ${(props) => props.theme.primary};
 `
 
 const RadioGroup = styled.div`
@@ -51,7 +51,7 @@ const FormButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  background-color: teal;
+  background-color: ${(props) => props.theme.primary};
 `
 
 export default function Form() {
