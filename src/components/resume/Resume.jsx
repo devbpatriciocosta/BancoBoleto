@@ -13,13 +13,13 @@ const ResumeContainer = styled.div`
   justify-content: space-around;
 `
 
-export default function Resume() {
+export default function Resume({ income, expense, total }) {
   return (
     <>
       <ResumeContainer>
-        <ResumeCards title="Entradas" Icon={FaRegArrowAltCircleUp} value="1000" />
-        <ResumeCards title="Saídas" Icon={FaRegArrowAltCircleDown} value="1000" />
-        <ResumeCards title="Total" Icon={FaDollarSign} value="1000" />
+        <ResumeCards title="Entradas" Icon={FaRegArrowAltCircleUp} value={income} />
+        <ResumeCards title="Saídas" Icon={FaRegArrowAltCircleDown} value={expense} />
+        <ResumeCards title="Total" Icon={FaDollarSign} value={total} />
       </ResumeContainer>
     </>
   )
