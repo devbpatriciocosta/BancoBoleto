@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const FormContainer = styled.div`
   max-width: 1120px;
@@ -54,10 +54,12 @@ const FormButton = styled.button`
   background-color: ${(props) => props.theme.primary};
 `
 
-export default function Form() {
+export default function Form({ handleAdd }) {
   const [desc, setDesc] = useState('')
   const [amount, setAmount] = useState('')
   const [isExpense, setExpense] = useState(false)
+
+  const generateID = () => Math.round(Math.random() * 1000)
 
   const handleSave = () => {
     if (desc || !amount) {
@@ -67,6 +69,18 @@ export default function Form() {
       alert('O valor tem que ser positivo!')
       return
     }
+
+    const transaction = {
+      id: generateID(),
+      desc: desc,
+      amount: amount,
+      expense: isExpense
+    }
+
+    handleAdd(transaction)
+
+    setDesc('')
+    setAmount('')
   }
 
   return (
