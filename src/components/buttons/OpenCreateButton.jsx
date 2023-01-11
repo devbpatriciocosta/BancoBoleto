@@ -21,18 +21,13 @@ const StyledOpenCreateButton = styled.div`
     box-shadow: 0 5px #666;
     transform: translateY(2px);
   }
-
-  p {
-    font-weight: bold;
-    font-size: 20px;
-  }
 `
 
 export default function OpenCreateButton() {
   return (
     <StyledOpenCreateButton>
       <Link href="/initialSignupPage">
-        <p>Cadastrar</p>
+        <h3>Cadastrar</h3>
       </Link>
     </StyledOpenCreateButton>
   )
