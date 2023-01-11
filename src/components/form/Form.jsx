@@ -62,7 +62,7 @@ export default function Form({ handleAdd }) {
   const generateID = () => Math.round(Math.random() * 1000)
 
   const handleSave = () => {
-    if (desc || !amount) {
+    if (!desc || !amount) {
       alert('Informe a descrição e o valor!')
       return
     } else if (amount < 1) {
