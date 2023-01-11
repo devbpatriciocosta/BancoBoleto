@@ -5,11 +5,16 @@ import Header from '../src/components/header/Header'
 import Resume from '../src/components/resume/Resume'
 
 export default function BankApplication() {
-  const data = localStorage.getItem('transactions')
-  const [transactionsList, setTransactionsList] = useState(data ? JSON.parse(data) : [])
+  const [data, setData] = useState([])
+  const [transactionsList, setTransactionsList] = useState(data)
   const [income, setIncome] = useState(0)
   const [expense, setExpense] = useState(0)
   const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    const localData = localStorage.getItem('transactions')
+    if (localData) setData(localData)
+  }, [])
 
   useEffect(() => {
     const amountExpense = transactionsList
