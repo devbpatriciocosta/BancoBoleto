@@ -1,8 +1,8 @@
 const theme = {
-  primary: '#60F101',
-  secondary: '#d1d1d1',
+  primary: '#92f981',
+  secondary: '#ffffff',
   black: '#000000',
-  grey: '#ffffff'
+  grey: '#e9e9e9'
 }
 
 export default theme
