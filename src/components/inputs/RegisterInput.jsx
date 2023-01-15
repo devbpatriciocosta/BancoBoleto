@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledRegisterInput = styled.input`
   width: 200px;
   height: 35px;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-left: 10px;
   transition: 0.5s ease-in-out;
   background-color: ${(props) => props.theme.secondary};
