@@ -4,17 +4,23 @@ import styled from 'styled-components'
 import IconImages from '../../iconImages/IconImages'
 import OpenCreateButton from '../../buttons/OpenCreateButton'
 
-const CardContainer = styled.div`
-  width: 290px;
-  min-height: 445px;
-  border-radius: 20px;
-  background-color: white;
+const CardContainerTitle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: column;
-  padding: 20px;
-  gap: 30px;
+  margin-top: 20px;
+  gap: 40px;
+`
+
+const CardContainer = styled.div`
+  width: 520px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 50px;
+  align-items: center;
+  gap: 40px;
 
   transition: 0.4s ease-in-out;
 
@@ -23,34 +29,14 @@ const CardContainer = styled.div`
   }
 `
 
-const CardTitle = styled.div`
-  width: 200px;
-  min-height: 35px;
-  border-radius: 20px;
-  background-color: ${(props) => props.theme.primary};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  p {
-    font-size: 20px;
-    font-weight: bold;
-  }
+const StyledPiggyImage = styled.div`
+  width: 110px;
 `
 
-const CardText = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Text = styled.p`
   text-align: center;
-`
-
-const StyledDoLogin = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
 
   a {
     text-decoration: none;
@@ -64,17 +50,17 @@ export default function WelcomeCard() {
   return (
     <>
       <CardContainer>
-        <CardTitle>
-          <p>Banco Seu Boleto</p>
-        </CardTitle>
-        <CardText>
-          <h3>O internet banking pensado pra você</h3>
-        </CardText>
-        <IconImages imageName="PiggyBank" type="svg" />
-        <OpenCreateButton />
-        <StyledDoLogin>
+        <CardContainerTitle>
+          <h1>Banco Seu Boleto</h1>
+          <h4>O internet banking pensado pra você</h4>
+        </CardContainerTitle>
+        <StyledPiggyImage>
+          <IconImages imageName="PiggyBank" type="svg" />
+        </StyledPiggyImage>
+        <OpenCreateButton type="submit">Fazer login</OpenCreateButton>
+        <Text>
           <Link href="/initialSignupPage">Faça seu cadastro!</Link>
-        </StyledDoLogin>
+        </Text>
       </CardContainer>
     </>
   )
