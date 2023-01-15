@@ -4,17 +4,21 @@ import styled from 'styled-components'
 import OpenCreateButton from '../../buttons/OpenCreateButton'
 import RegisterInput from '../../inputs/RegisterInput'
 
-const CardContainer = styled.div`
-  width: 290px;
-  min-height: 445px;
-  border-radius: 20px;
-  background-color: ${(props) => props.theme.secondary};
+const CardContainerTitle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-direction: column;
-  padding: 20px;
-  gap: 20px;
+  margin-top: 20px;
+`
+
+const CardContainer = styled.div`
+  width: 520px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 50px;
+
   transition: 0.4s ease-in-out;
 
   :hover {
@@ -22,27 +26,18 @@ const CardContainer = styled.div`
   }
 `
 
-const CardTitle = styled.div`
-  width: 200px;
-  min-height: 35px;
-  border-radius: 20px;
-  background-color: ${(props) => props.theme.primary};
+const Form = styled.form`
   display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
-
-  p {
-    font-size: 20px;
-    font-weight: bold;
-  }
 `
 
-const StyledDoLogin = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Text = styled.p`
   text-align: center;
-  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
 
   a {
     text-decoration: none;
@@ -56,17 +51,21 @@ export default function WelcomeCard() {
   return (
     <>
       <CardContainer>
-        <CardTitle>
-          <p>Banco Seu Boleto</p>
-        </CardTitle>
-        <RegisterInput />
-        <RegisterInput />
-        <RegisterInput />
-        <RegisterInput />
-        <OpenCreateButton />
-        <StyledDoLogin>
-          <Link href="/initialLoginPage">Fazer login</Link>
-        </StyledDoLogin>
+        <CardContainerTitle>
+          <h1>Obtenha o CONTROLE,</h1>
+          <h3>Faça seu cadastro</h3>
+        </CardContainerTitle>
+        <Form>
+          <RegisterInput label="Nome" placeholder="Insira seu primeiro nome" />
+          <RegisterInput label="Sobrenome" placeholder="Insira seu sobronme completo" />
+          <RegisterInput label="Usuário" placeholder="Crie um nome de usuário" />
+          <RegisterInput label="E-mail" type="email" placeholder="Insira o seu e-mail" />
+          <RegisterInput label="Senha" type="password" placeholder="Crie sua senha" />
+          <OpenCreateButton type="submit">Cadastrar</OpenCreateButton>
+        </Form>
+        <Text>
+          Já possui uma conta? <Link href="/loginPage">Faça seu login aqui!</Link>
+        </Text>
       </CardContainer>
     </>
   )
