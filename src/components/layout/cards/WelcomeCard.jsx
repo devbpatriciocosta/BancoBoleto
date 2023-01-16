@@ -59,7 +59,7 @@ export default function WelcomeCard() {
         </StyledPiggyImage>
         <OpenCreateButton type="submit">Fazer login</OpenCreateButton>
         <Text>
-          <Link href="/initialSignupPage">Faça seu cadastro!</Link>
+          <Link href="/initialSignupPage">Não tem uma conta? Faça seu cadastro!</Link>
         </Text>
       </CardContainer>
     </>
