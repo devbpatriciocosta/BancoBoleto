@@ -20,6 +20,16 @@ const StyledNavbarButton = styled.button`
     transform: translateY(4px);
   }
 `
-export default function NavbarButton() {
-  return <StyledNavbarButton>Entrar</StyledNavbarButton>
+export default function NavbarButton({ children, loading, disabled, ...props }) {
+  return (
+    <StyledNavbarButton disabled={disabled || loading} {...props}>
+      {loading && (
+        <>
+          {/* <img src="./loading.svg" width="14px" /> */}
+          <p>Entrando...</p>
+        </>
+      )}
+      {!loading && children}
+    </StyledNavbarButton>
+  )
 }
