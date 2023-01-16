@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import InputAccount from '../../inputs/InputAccount'
 import InputAgency from '../../inputs/InputAgency'
-import InputDigit from '../../inputs/InputDigit'
 
 const StyledUl = styled.ul`
   width: 80%;
@@ -104,10 +102,9 @@ export default function RightNavbar() {
       <li>
         <p>Acesse sua conta</p>
       </li>
-      <InputAgency />
-      <InputAccount />
-      <InputDigit />
-      <StyledNavbarButton>
+      <InputAgency placeholder="N° da Agência" />
+      <InputAgency placeholder="N° da Conta" />
+      <StyledNavbarButton type="submit">
         <Link href="/">Entrar</Link>
       </StyledNavbarButton>
     </StyledUl>
