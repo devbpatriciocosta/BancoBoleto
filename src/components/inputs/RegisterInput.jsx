@@ -31,16 +31,16 @@ const StyledRegisterInput = styled.input`
   }
 `
 
-const ErrorLabel = styled.span`
-  color: ${(props) => props.theme.error};
-  font-weight: bold;
-  font-size: 14px;
-`
+// const ErrorLabel = styled.span`
+//   color: ${(props) => props.theme.error};
+//   font-weight: bold;
+//   font-size: 14px;
+// `
 
-const errorMessage = {
-  'string.empty': 'Este campo é obrigatório',
-  'string.email': 'Por favor, digite um e-mail válido'
-}
+// const errorMessage = {
+//   'string.empty': 'Este campo é obrigatório',
+//   'string.email': 'Por favor, digite um e-mail válido'
+// }
 
 const RegisterInput = ({ label, placeholder }) => {
   return (
