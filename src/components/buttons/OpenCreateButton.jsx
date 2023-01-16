@@ -23,11 +23,11 @@ const StyledOpenCreateButton = styled.div`
   }
 `
 
-export default function OpenCreateButton() {
+export default function OpenCreateButton({ children, ...props }) {
   return (
-    <StyledOpenCreateButton>
-      <Link href="/initialSignupPage">
-        <h3>Cadastrar</h3>
+    <StyledOpenCreateButton {...props}>
+      <Link href="/loginPage">
+        <h3>{children}</h3>
       </Link>
     </StyledOpenCreateButton>
   )
