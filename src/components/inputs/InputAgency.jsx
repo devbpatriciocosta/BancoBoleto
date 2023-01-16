@@ -5,7 +5,7 @@ const StyledInputAgency = styled.input`
   height: 22px;
   border: none;
   border-radius: 50px;
-  padding-left: 10px;
+  text-align: center;
   transition: 0.5s ease-in-out;
 
   :hover {
@@ -13,6 +13,6 @@ const StyledInputAgency = styled.input`
   }
 `
 
-export default function InputAgency() {
-  return <StyledInputAgency placeholder="Agência" />
+export default function InputAgency({ placeholder }) {
+  return <StyledInputAgency placeholder={placeholder} type="number" />
 }
