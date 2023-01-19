@@ -9,7 +9,7 @@ import { signInUser } from '../../../modules/user/user.service'
 const postSchema = Joi.object({
   firstName: Joi.string().required().max(50),
   lastName: Joi.string().required().max(50),
-  user: Joi.string().required().max(50),
+  user: Joi.string().required().max(30),
   email: Joi.string().email().required().max(100),
   password: Joi.string().required().max(50).min(6)
 })
