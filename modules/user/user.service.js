@@ -1,5 +1,11 @@
+import { hashPassword } from '../../utils/bcrypt'
+
 export const signInUser = (body) => {
-  console.log('Sign IN User')
+  const user = {
+    ...body,
+    password: hashPassword(body.password)
+  }
   console.log(body)
+  console.log(user)
   return true
 }
