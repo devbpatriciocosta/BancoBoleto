@@ -1,14 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { useForm } from 'react-hook-form'
-import { joiResolver } from '@hookform/resolvers/joi'
-import axios from 'axios'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import { signinSchema } from '../modules/user/user.schema'
-
-import OpenCreateButton from '../../buttons/OpenCreateButton'
 import RegisterInput from '../../inputs/RegisterInput'
 
 const CardContainerTitle = styled.div`
@@ -41,6 +34,28 @@ const Form = styled.form`
   align-items: center;
 `
 
+const Button = styled.button`
+  cursor: pointer;
+  width: 188px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #92f981;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+
+  :hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #3e8e41;
+  }
+
+  :active {
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  }
+`
+
 const Text = styled.p`
   text-align: center;
   margin-bottom: 20px;
@@ -55,38 +70,55 @@ const Text = styled.p`
 `
 
 export default function WelcomeCard() {
-  const router = useRouter()
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-    setError
-  } = useForm({
-    resolver: joiResolver(signinSchema)
-  })
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [user, setUser] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-  const [loadingButton, setLoadingButton] = useState(false)
-
-  const handleForm = async (data) => {
-    try {
-      setLoadingButton(true)
-      const { status } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/user/signin`,
-        data
-      )
-      if (status === 201) {
-        router.push('/')
-      }
-    } catch (err) {
-      if (err.response.data.code === 11000) {
-        setError(err.response.data.duplicatedKey, {
-          type: 'duplicated'
-        })
-      }
-    } finally {
-      setLoadingButton(false)
-    }
+  const handleForm = (event) => {
+    event.preventDefault()
+    console.log({
+      firstName,
+      lastName,
+      user,
+      email,
+      password
+    })
   }
+
+  // const router = useRouter()
+  // const {
+  //   control,
+  //   handleSubmit,
+  //   formState: { errors },
+  //   setError
+  // } = useForm({
+  //   resolver: joiResolver(signinSchema)
+  // })
+
+  // const [loadingButton, setLoadingButton] = useState(false)
+
+  // const handleForm = async (data) => {
+  //   try {
+  //     setLoadingButton(true)
+  //     const { status } = await axios.post(
+  //       `${process.env.NEXT_PUBLIC_API_URL}/api/user/signin`,
+  //       data
+  //     )
+  //     if (status === 201) {
+  //       router.push('/')
+  //     }
+  //   } catch (err) {
+  //     if (err.response.data.code === 11000) {
+  //       setError(err.response.data.duplicatedKey, {
+  //         type: 'duplicated'
+  //       })
+  //     }
+  //   } finally {
+  //     setLoadingButton(false)
+  //   }
+  // }
 
   return (
     <>
@@ -95,33 +127,45 @@ export default function WelcomeCard() {
           <h1>Obtenha o CONTROLE,</h1>
           <h3>Faça seu cadastro</h3>
         </CardContainerTitle>
-        <Form onSubmit={handleSubmit(handleForm)}>
-          <RegisterInput label="Nome" placeholder="Insira seu primeiro nome" control={control} />
+        <Form onSubmit={handleForm}>
+          <RegisterInput
+            label="Nome"
+            placeholder="Insira seu primeiro nome"
+            onChange={({ target }) => {
+              setFirstName(target.value)
+            }}
+          />
           <RegisterInput
             label="Sobrenome"
             placeholder="Insira seu sobronme completo"
-            control={control}
+            onChange={({ target }) => {
+              setLastName(target.value)
+            }}
           />
-          <RegisterInput label="Usuário" placeholder="Crie um nome de usuário" control={control} />
+          <RegisterInput
+            label="Usuário"
+            placeholder="Crie um nome de usuário"
+            onChange={({ target }) => {
+              setUser(target.value)
+            }}
+          />
           <RegisterInput
             label="E-mail"
             type="email"
             placeholder="Insira o seu e-mail"
-            control={control}
+            onChange={({ target }) => {
+              setEmail(target.value)
+            }}
           />
           <RegisterInput
             label="Senha"
             type="password"
             placeholder="Crie sua senha"
-            control={control}
+            onChange={({ target }) => {
+              setPassword(target.value)
+            }}
           />
-          <OpenCreateButton
-            loading={loadingButton}
-            type="submit"
-            disabled={Object.keys(errors).length}
-          >
-            Cadastrar
-          </OpenCreateButton>
+          <Button>Cadastrar</Button>
         </Form>
         <Text>
           Já possui uma conta? <Link href="/loginPage">Faça seu login aqui!</Link>
