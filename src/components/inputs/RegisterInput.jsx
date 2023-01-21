@@ -1,4 +1,6 @@
+/* eslint-disable react/display-name */
 import styled from 'styled-components'
+import { forwardRef } from 'react'
 
 const RegisterInputContainer = styled.div`
   min-width: 70%;
@@ -42,13 +44,13 @@ const StyledRegisterInput = styled.input`
 //   'string.email': 'Por favor, digite um e-mail válido'
 // }
 
-const RegisterInput = ({ label, ...props }) => {
+const RegisterInput = forwardRef(({ label, ...props }, ref) => {
   return (
     <RegisterInputContainer>
       <RegisterLabel>{label}</RegisterLabel>
-      <StyledRegisterInput placeholder={label} {...props} />
+      <StyledRegisterInput placeholder={label} {...props} ref={ref} />
     </RegisterInputContainer>
   )
-}
+})
 
 export default RegisterInput
