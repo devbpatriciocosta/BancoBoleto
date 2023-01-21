@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { joiResolver } from '@hookform/resolvers/joi'
+
+import { sigInSchema } from '../../../../modules/user/user.schema'
 
 import RegisterInput from '../../inputs/RegisterInput'
 
@@ -70,22 +73,19 @@ const Text = styled.p`
 `
 
 export default function WelcomeCard() {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [user, setUser] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: joiResolver(sigInSchema)
+  })
 
-  const handleForm = (event) => {
-    event.preventDefault()
-    console.log({
-      firstName,
-      lastName,
-      user,
-      email,
-      password
-    })
+  const handleForm = (data) => {
+    console.log(data)
   }
+
+  console.log(errors)
 
   // const router = useRouter()
   // const {
@@ -127,45 +127,35 @@ export default function WelcomeCard() {
           <h1>Obtenha o CONTROLE,</h1>
           <h3>Faça seu cadastro</h3>
         </CardContainerTitle>
-        <Form onSubmit={handleForm}>
+        <Form onSubmit={handleSubmit(handleForm)}>
           <RegisterInput
             label="Nome"
             placeholder="Insira seu primeiro nome"
-            onChange={({ target }) => {
-              setFirstName(target.value)
-            }}
+            {...register('firstName')}
           />
           <RegisterInput
             label="Sobrenome"
             placeholder="Insira seu sobronme completo"
-            onChange={({ target }) => {
-              setLastName(target.value)
-            }}
+            {...register('lastName')}
           />
           <RegisterInput
             label="Usuário"
             placeholder="Crie um nome de usuário"
-            onChange={({ target }) => {
-              setUser(target.value)
-            }}
+            {...register('user')}
           />
           <RegisterInput
             label="E-mail"
             type="email"
             placeholder="Insira o seu e-mail"
-            onChange={({ target }) => {
-              setEmail(target.value)
-            }}
+            {...register('email')}
           />
           <RegisterInput
             label="Senha"
             type="password"
             placeholder="Crie sua senha"
-            onChange={({ target }) => {
-              setPassword(target.value)
-            }}
+            {...register('password')}
           />
-          <Button>Cadastrar</Button>
+          <Button type="submit">Cadastrar</Button>
         </Form>
         <Text>
           Já possui uma conta? <Link href="/loginPage">Faça seu login aqui!</Link>
