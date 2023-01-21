@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Link from 'next/link'
 
 const StyledOpenCreateButton = styled.div`
   cursor: pointer;
@@ -26,9 +25,7 @@ const StyledOpenCreateButton = styled.div`
 export default function OpenCreateButton({ children, ...props }) {
   return (
     <StyledOpenCreateButton {...props}>
-      <Link href="/loginPage">
-        <h3>{children}</h3>
-      </Link>
+      <h3>{children}</h3>
     </StyledOpenCreateButton>
   )
 }
