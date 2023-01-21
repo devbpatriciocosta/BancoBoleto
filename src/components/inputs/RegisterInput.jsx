@@ -42,11 +42,11 @@ const StyledRegisterInput = styled.input`
 //   'string.email': 'Por favor, digite um e-mail válido'
 // }
 
-const RegisterInput = ({ label, placeholder }) => {
+const RegisterInput = ({ label, ...props }) => {
   return (
     <RegisterInputContainer>
       <RegisterLabel>{label}</RegisterLabel>
-      <StyledRegisterInput placeholder={placeholder} />
+      <StyledRegisterInput placeholder={label} {...props} />
     </RegisterInputContainer>
   )
 }
