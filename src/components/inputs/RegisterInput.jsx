@@ -26,29 +26,30 @@ const StyledRegisterInput = styled.input`
     box-shadow: 0 0 0 2px #60f101;
   }
 
-  ${(props) => props.error && `border: 2px solid ${(props) => props.theme.error}`}
-
   &:focus {
     outline: none;
   }
+
+  ${(props) => props.error && `border: 2px solid ${props.theme.error};`}
 `
 
-// const ErrorLabel = styled.span`
-//   color: ${(props) => props.theme.error};
-//   font-weight: bold;
-//   font-size: 14px;
-// `
+const ErrorLabel = styled.span`
+  color: ${(props) => props.theme.error};
+  font-weight: bold;
+  font-size: 12px;
+`
 
-// const errorMessage = {
-//   'string.empty': 'Este campo é obrigatório',
-//   'string.email': 'Por favor, digite um e-mail válido'
-// }
+const errorMessage = {
+  'string.empty': 'Este campo é obrigatório',
+  'string.email': 'Digite um e-mail válido'
+}
 
-const RegisterInput = forwardRef(({ label, ...props }, ref) => {
+const RegisterInput = forwardRef(({ label, error, ...props }, ref) => {
   return (
     <RegisterInputContainer>
       <RegisterLabel>{label}</RegisterLabel>
-      <StyledRegisterInput placeholder={label} {...props} ref={ref} />
+      <StyledRegisterInput placeholder={label} error={error} {...props} ref={ref} />
+      {error && <ErrorLabel>{errorMessage[error.type] || error.message}</ErrorLabel>}
     </RegisterInputContainer>
   )
 })
