@@ -48,6 +48,8 @@ const Button = styled.button`
   justify-content: center;
   transition: 0.3s ease-in-out;
 
+  ${(props) => !props.disabled && 'cursor: pointer'}
+
   :hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     background-color: #3e8e41;
@@ -56,6 +58,10 @@ const Button = styled.button`
   :active {
     box-shadow: 0 5px #666;
     transform: translateY(2px);
+  }
+
+  :disabled {
+    background-color: #666;
   }
 `
 
@@ -84,8 +90,6 @@ export default function WelcomeCard() {
   const handleForm = (data) => {
     console.log(data)
   }
-
-  console.log(errors)
 
   // const router = useRouter()
   // const {
@@ -132,30 +136,37 @@ export default function WelcomeCard() {
             label="Nome"
             placeholder="Insira seu primeiro nome"
             {...register('firstName')}
+            error={errors.firstName}
           />
           <RegisterInput
             label="Sobrenome"
             placeholder="Insira seu sobronme completo"
             {...register('lastName')}
+            error={errors.lastName}
           />
           <RegisterInput
             label="Usuário"
             placeholder="Crie um nome de usuário"
             {...register('user')}
+            error={errors.user}
           />
           <RegisterInput
             label="E-mail"
             type="email"
             placeholder="Insira o seu e-mail"
             {...register('email')}
+            error={errors.email}
           />
           <RegisterInput
             label="Senha"
             type="password"
             placeholder="Crie sua senha"
             {...register('password')}
+            error={errors.password}
           />
-          <Button type="submit">Cadastrar</Button>
+          <Button type="submit" disabled={Object.keys(errors).length > 0}>
+            Cadastrar
+          </Button>
         </Form>
         <Text>
           Já possui uma conta? <Link href="/loginPage">Faça seu login aqui!</Link>
