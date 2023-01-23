@@ -17,17 +17,18 @@ const CardContainerTitle = styled.div`
 `
 
 const CardContainer = styled.div`
-  width: 520px;
-  margin-top: 60px;
+  width: 570px;
+  min-height: 70vh;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   background-color: white;
   border-radius: 50px;
 
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   :hover {
-    transform: scale(1.1);
+    box-shadow: 0 0 0 5px #60f101;
   }
 `
 
@@ -49,6 +50,9 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   transition: 0.3s ease-in-out;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
 
   ${(props) => !props.disabled && 'cursor: pointer'}
 
