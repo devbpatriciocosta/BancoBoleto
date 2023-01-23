@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import SignInCard from '../../components/layout/cards/SignInCard'
 
 const FrontPageContainer = styled.div`
-  background-image: url('/MoneyTreeJpeg.jpg');
+  background-image: url('/bgSeuSeuBoleta.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
