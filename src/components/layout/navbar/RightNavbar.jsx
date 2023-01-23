@@ -1,23 +1,28 @@
 import styled from 'styled-components'
-import Link from 'next/link'
 
-import InputAgency from '../../inputs/InputAgency'
+import { useForm } from 'react-hook-form'
+import { joiResolver } from '@hookform/resolvers/joi'
+import axios from 'axios'
+import { useRouter } from 'next/router'
+
+import { loginSchema } from '../../../../modules/user/user.schema'
+
+import RegisterInput from '../../inputs/RegisterInput'
 
 const StyledUl = styled.ul`
-  width: 80%;
+  width: 100%;
+  padding: 200px;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  background-color: ${(props) => props.theme.primary};
+  background-color: none;
 
   p {
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
-      Geneva, Verdana, sans-serif;
-    color: ${(props) => props.theme.black};
+    color: white;
   }
 
   li {
@@ -69,44 +74,91 @@ const StyledUl = styled.ul`
   }
 `
 
-const StyledNavbarButton = styled.button`
-  width: 58px;
-  height: 22px;
-  border: none;
-  border-radius: 50px;
-  background-color: ${(props) => props.theme.secondary};
+const Form = styled.form`
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+`
+
+const Button = styled.button`
   cursor: pointer;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.terciary};
   transition: 0.3s ease-in-out;
+
+  ${(props) => !props.disabled && 'cursor: pointer'}
 
   :hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    background-color: ${(props) => props.theme.primary};
+    background-color: #92f981;
   }
 
   :active {
-    background-color: #3e8e41;
     box-shadow: 0 5px #666;
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
+  :disabled {
+    background-color: #666;
   }
 `
 
 export default function RightNavbar() {
+  const router = useRouter()
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    setError
+  } = useForm({
+    resolver: joiResolver(loginSchema)
+  })
+
+  const onSubmit = async (data) => {
+    try {
+      const { status } = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/user/login`, data)
+      if (status === 200) {
+        router.push('/')
+      }
+    } catch ({ response }) {
+      if (response.data === 'password incorrect') {
+        setError('password', {
+          message: 'A senha está incorreta'
+        })
+      } else if (response.data === 'not found') {
+        setError('userOrEmail', {
+          message: 'Usuário ou E-mail não encontrado'
+        })
+      }
+    }
+  }
+
   return (
     <StyledUl>
-      <li>
-        <p>Acesse sua conta</p>
-      </li>
-      <InputAgency placeholder="N° da Agência" />
-      <InputAgency placeholder="N° da Conta" />
-      <StyledNavbarButton type="submit">
-        <Link href="/">Entrar</Link>
-      </StyledNavbarButton>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <li>
+          <p>Acesso RÁPIDO</p>
+        </li>
+        <RegisterInput
+          placeholder="Insira o seu Usuário ou E-mail aqui"
+          name="userOrEmail"
+          control={control}
+        />
+        <RegisterInput
+          placeholder="Insira a sua senha"
+          type="password"
+          name="password"
+          control={control}
+        />
+        <Button type="submit" disabled={Object.keys(errors).length > 0}>
+          Entrar
+        </Button>
+      </Form>
     </StyledUl>
   )
 }

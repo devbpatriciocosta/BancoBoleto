@@ -1,20 +1,18 @@
 import styled from 'styled-components'
 
 const StyledUl = styled.ul`
-  width: 40%;
+  width: 45%;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 30px;
-  background-color: ${(props) => props.theme.primary};
+  background-color: none;
 
   p {
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
-      Geneva, Verdana, sans-serif;
-    color: ${(props) => props.theme.black};
+    color: white;
   }
 
   li {

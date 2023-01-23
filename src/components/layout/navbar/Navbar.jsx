@@ -6,10 +6,10 @@ import Burguer from './Burger'
 const StyledNavbar = styled.nav`
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 50px;
+  width: 85%;
+  height: 100px;
   position: fixed;
-  background-color: ${(props) => props.theme.primary};
+  background-color: none;
 
   @media (max-width: 875px) {
     display: flex;
