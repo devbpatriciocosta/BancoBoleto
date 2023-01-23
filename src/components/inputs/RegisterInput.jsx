@@ -41,7 +41,9 @@ const ErrorLabel = styled.span`
 
 const errorMessage = {
   'string.empty': 'Este campo é obrigatório',
-  'string.email': 'Digite um e-mail válido'
+  'string.email': 'Digite um e-mail válido',
+  // eslint-disable-next-line prettier/prettier
+  'duplicated': 'Já existe uma conta registrada com esse valor'
 }
 
 const RegisterInput = ({ label, name, control, defaultValue = '', ...props }) => {
