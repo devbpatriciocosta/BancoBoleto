@@ -80,7 +80,7 @@ const Text = styled.p`
 
 export default function WelcomeCard() {
   const {
-    register,
+    control,
     handleSubmit,
     formState: { errors }
   } = useForm({
@@ -135,34 +135,34 @@ export default function WelcomeCard() {
           <RegisterInput
             label="Nome"
             placeholder="Insira seu primeiro nome"
-            {...register('firstName')}
-            error={errors.firstName}
+            name="firstName"
+            control={control}
           />
           <RegisterInput
             label="Sobrenome"
             placeholder="Insira seu sobronme completo"
-            {...register('lastName')}
-            error={errors.lastName}
+            name="lastName"
+            control={control}
           />
           <RegisterInput
             label="Usuário"
             placeholder="Crie um nome de usuário"
-            {...register('user')}
-            error={errors.user}
+            name="user"
+            control={control}
           />
           <RegisterInput
             label="E-mail"
             type="email"
             placeholder="Insira o seu e-mail"
-            {...register('email')}
-            error={errors.email}
+            name="email"
+            control={control}
           />
           <RegisterInput
             label="Senha"
             type="password"
             placeholder="Crie sua senha"
-            {...register('password')}
-            error={errors.password}
+            name="password"
+            control={control}
           />
           <Button type="submit" disabled={Object.keys(errors).length > 0}>
             Cadastrar

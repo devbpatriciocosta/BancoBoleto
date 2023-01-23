@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import styled from 'styled-components'
-import { forwardRef } from 'react'
+import { useController } from 'react-hook-form'
 
 const RegisterInputContainer = styled.div`
   min-width: 70%;
@@ -44,14 +44,25 @@ const errorMessage = {
   'string.email': 'Digite um e-mail válido'
 }
 
-const RegisterInput = forwardRef(({ label, error, ...props }, ref) => {
+const RegisterInput = ({ label, name, control, defaultValue = '', ...props }) => {
+  const {
+    field: { value, onChange },
+    fieldState: { error }
+  } = useController({ name, control, defaultValue })
+
   return (
     <RegisterInputContainer>
       <RegisterLabel>{label}</RegisterLabel>
-      <StyledRegisterInput placeholder={label} error={error} {...props} ref={ref} />
+      <StyledRegisterInput
+        placeholder={label}
+        error={error}
+        {...props}
+        value={value}
+        onChange={onChange}
+      />
       {error && <ErrorLabel>{errorMessage[error.type] || error.message}</ErrorLabel>}
     </RegisterInputContainer>
   )
-})
+}
 
 export default RegisterInput
