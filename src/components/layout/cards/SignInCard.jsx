@@ -2,6 +2,8 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import { joiResolver } from '@hookform/resolvers/joi'
+import axios from 'axios'
+import { useRouter } from 'next/router'
 
 import { sigInSchema } from '../../../../modules/user/user.schema'
 
@@ -79,27 +81,33 @@ const Text = styled.p`
 `
 
 export default function WelcomeCard() {
+  const router = useRouter()
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    setError
   } = useForm({
     resolver: joiResolver(sigInSchema)
   })
 
-  const handleForm = (data) => {
-    console.log(data)
+  const handleForm = async (data) => {
+    try {
+      const { status } = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/user/signIn`,
+        data
+      )
+      if (status === 201) {
+        router.push('/')
+      }
+    } catch (err) {
+      if (err.response.data.code === 11000) {
+        setError(err.response.data.duplicatedKey, {
+          type: 'duplicated'
+        })
+      }
+    }
   }
-
-  // const router = useRouter()
-  // const {
-  //   control,
-  //   handleSubmit,
-  //   formState: { errors },
-  //   setError
-  // } = useForm({
-  //   resolver: joiResolver(signinSchema)
-  // })
 
   // const [loadingButton, setLoadingButton] = useState(false)
 
