@@ -20,6 +20,12 @@ const StyledOpenCreateButton = styled.div`
     box-shadow: 0 5px #666;
     transform: translateY(2px);
   }
+
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+  }
 `
 
 export default function OpenCreateButton({ children, ...props }) {
