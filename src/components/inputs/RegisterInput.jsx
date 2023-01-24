@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { useController } from 'react-hook-form'
 
 const RegisterInputContainer = styled.div`
-  min-width: 70%;
+  min-width: 90%;
 `
 
 const RegisterLabel = styled.p`
@@ -17,13 +17,13 @@ const StyledRegisterInput = styled.input`
   border: 1px solid ${(props) => props.theme.primary};
   border-radius: 10px;
   background-color: ${(props) => props.theme.grey};
-  padding: 15px 20px;
+  padding: 15px 10px;
   box-sizing: border-box;
 
   transition: 0.5s ease-in-out;
 
   :hover {
-    box-shadow: 0 0 0 2px #60f101;
+    box-shadow: 0 0 0 2px #bf81f9;
   }
 
   &:focus {

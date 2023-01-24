@@ -9,8 +9,8 @@ const StyledNavbar = styled.nav`
   flex-direction: column;
   color: ${(props) => props.theme.fontColor};
   width: 100%;
-  margin-top: 10px;
   position: fixed;
+  padding-top: 5px;
   font-size: 40px;
 
   cursor: grab;
