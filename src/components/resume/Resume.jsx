@@ -11,6 +11,7 @@ const ResumeContainer = styled.div`
   gap: 20px;
   margin-top: -50px;
   justify-content: space-around;
+  padding-top: 20px;
 `
 
 export default function Resume({ income, expense, total }) {

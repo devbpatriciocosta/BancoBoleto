@@ -9,25 +9,76 @@ import { loginSchema } from '../../../../modules/user/user.schema'
 
 import RegisterInput from '../../inputs/RegisterInput'
 
-const CardContainerTitle = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
-`
-
 const CardContainer = styled.div`
-  width: 520px;
-  margin-top: 60px;
+  max-height: 80vh;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+  padding: 40px;
   border-radius: 50px;
+  font-size: larger;
+  color: ${(props) => props.theme.fontColor};
 
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   :hover {
+    box-shadow: 0 0 0 5px hsla(620, 100%, 50%, 0.5);
+  }
+
+  h1 {
+    transition: 0.4s ease-in-out;
+    font-size: 2.5rem;
+    font-weight: 500;
+    animation: lights 5s 750ms linear infinite;
+  }
+
+  h2 {
+    transition: 0.4s ease-in-out;
+    font-size: 1.5rem;
+    font-weight: 500;
+    animation: lights 5s 750ms linear infinite;
+  }
+
+  h2:hover {
     transform: scale(1.1);
+  }
+
+  @keyframes lights {
+    0% {
+      color: hsl(230, 100%, 95%);
+      text-shadow: 0 0 1em hsla(600, 100%, 50%, 0.2), 0 0 0.125em hsla(600, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0), 1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+
+    30% {
+      color: hsl(230, 80%, 90%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    40% {
+      color: hsl(230, 40%, 80%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    100% {
+      color: hsl(230, 100%, 95%);
+      text-shadow: 0 0 1em hsla(600, 100%, 50%, 0.2), 0 0 0.125em hsla(620, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
   }
 `
 
@@ -35,8 +86,9 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 20px 0;
-  gap: 20px;
+  gap: 10px;
   align-items: center;
+  width: 350px;
 `
 
 const Button = styled.button`
@@ -44,11 +96,14 @@ const Button = styled.button`
   width: 188px;
   height: 35px;
   border-radius: 20px;
-  background-color: #92f981;
+  background-color: #bf81f9;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s ease-in-out;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
 
   ${(props) => !props.disabled && 'cursor: pointer'}
 
@@ -69,14 +124,29 @@ const Button = styled.button`
 
 const Text = styled.p`
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px;
   font-size: 14px;
+  color: ${(props) => props.theme.fontColor};
 
   a {
-    text-decoration: none;
+    font-weight: bold;
     font-size: 14px;
-    font-weight: bolder;
-    color: black;
+    background: linear-gradient(90deg, #fff, #cc7ce0, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 90%;
+    animation: shine 2s linear infinite;
+    position: relative;
+  }
+
+  @keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
   }
 `
 
@@ -113,10 +183,8 @@ export default function LoginCard() {
   return (
     <>
       <CardContainer>
-        <CardContainerTitle>
-          <h1>Controle suas finanças,</h1>
-          <h3>obtenha a liberdade!</h3>
-        </CardContainerTitle>
+        <h1>Controle suas finanças,</h1>
+        <h2>obtenha a liberdade!</h2>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <RegisterInput
             label="Usuário ou E-mail"
@@ -136,7 +204,7 @@ export default function LoginCard() {
           </Button>
         </Form>
         <Text>
-          Não possui uma conta? <Link href="/initialLoginPage">Faça seu cadastro aqui!</Link>
+          <Link href="/landingPage">Página Inicial</Link>
         </Text>
       </CardContainer>
     </>

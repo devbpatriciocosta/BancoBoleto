@@ -7,6 +7,10 @@ const FrontPageContainer = styled.div`
   background-size: 300% 300%;
   animation: gradient-animation 6s ease infinite;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   @keyframes gradient-animation {
     0% {
@@ -21,20 +25,11 @@ const FrontPageContainer = styled.div`
   }
 `
 
-const CardContainer = styled.div`
-  padding: 150px 0 0 770px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
 export default function ComponentLoginPage() {
   return (
     <>
       <FrontPageContainer>
-        <CardContainer>
-          <LoginCard />
-        </CardContainer>
+        <LoginCard />
       </FrontPageContainer>
     </>
   )

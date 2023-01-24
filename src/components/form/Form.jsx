@@ -31,7 +31,7 @@ const Input = styled.input`
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 15px;
-  border: 1px solid ${(props) => props.theme.primary};
+  border: 1px solid hsla(620, 100%, 50%, 0.5);
 `
 
 const RadioGroup = styled.div`
@@ -41,7 +41,7 @@ const RadioGroup = styled.div`
   input {
     margin-left: 20px;
     margin-right: 5px;
-    accent-color: black;
+    accent-color: hsla(620, 100%, 50%, 0.5);
     margin-top: 0;
   }
 `
@@ -52,7 +52,7 @@ const FormButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  background-color: ${(props) => props.theme.primary};
+  background-color: hsla(620, 100%, 50%, 0.5);
 `
 
 export default function Form({ handleAdd, transactionsList, setTransactionsList }) {

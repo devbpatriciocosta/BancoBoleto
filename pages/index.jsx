@@ -1,8 +1,15 @@
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 import Form from '../src/components/form/Form'
+import Navbar from '../src/components/layout/navbar/Navbar'
 import Header from '../src/components/header/Header'
 import Resume from '../src/components/resume/Resume'
+
+const PageContainer = styled.div`
+  background-color: black;
+  height: 100vh;
+`
 
 export default function BankApplication() {
   const [data, setData] = useState([])
@@ -44,7 +51,8 @@ export default function BankApplication() {
   }
 
   return (
-    <>
+    <PageContainer>
+      <Navbar />
       <Header />
       <Resume income={income} expense={expense} total={total} />
       <Form
@@ -52,6 +60,6 @@ export default function BankApplication() {
         transactionsList={transactionsList}
         setTransactionsList={setTransactionsList}
       />
-    </>
+    </PageContainer>
   )
 }

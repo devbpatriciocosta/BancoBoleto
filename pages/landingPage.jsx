@@ -41,7 +41,7 @@ const Card = styled.div`
   transition: 0.3s ease-in-out;
 
   :hover {
-    box-shadow: 0 0 0 5px #60f101;
+    box-shadow: 0 0 0 5px hsla(620, 100%, 50%, 0.5);
   }
 
   h1 {
@@ -148,7 +148,7 @@ function HomePage() {
           </Text>
           <Text>
             Já possui uma conta?<br></br>
-            <Link href="/initialSignupPage"> Faça seu Login!</Link>
+            <Link href="/loginPage"> Faça seu Login!</Link>
           </Text>
         </Card>
       </FrontPageContainer>
