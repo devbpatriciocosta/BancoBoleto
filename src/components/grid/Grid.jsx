@@ -10,6 +10,12 @@ const StyledGrid = styled.table`
   border-radius: 5px;
   max-width: 1120px;
   margin: 20px auto;
+
+  transition: 0.3s ease-in-out;
+
+  :hover {
+    transform: translateY(5px);
+  }
 `
 
 const StyledThead = styled.thead``

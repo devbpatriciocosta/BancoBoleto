@@ -14,6 +14,12 @@ const FormContainer = styled.div`
   padding: 15px 0px;
   gap: 10px;
 
+  transition: 0.3s ease-in-out;
+
+  :hover {
+    transform: translateY(5px);
+  }
+
   @media (max-width: 750px) {
     display: grid;
   }
@@ -50,9 +56,11 @@ const FormButton = styled.button`
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  color: white;
+  font-weight: bold;
+  color: black;
   background-color: hsla(620, 100%, 50%, 0.5);
+
+  cursor: pointer;
 `
 
 export default function Form({ handleAdd, transactionsList, setTransactionsList }) {

@@ -13,7 +13,7 @@ const CardContainer = styled.div`
   transition: 0.3s ease-in-out;
 
   :hover {
-    transform: translateY(2px);
+    transform: translateY(5px);
   }
 
   @media (max-width: 750px) {
