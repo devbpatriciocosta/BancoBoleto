@@ -12,52 +12,57 @@ const StyledNavbar = styled.nav`
   position: fixed;
   padding-top: 5px;
   font-size: 40px;
+  gap: 15px;
+  transition: 0.3s ease-in-out;
 
-  cursor: grab;
-
-  h1 {
-    transition: 0.2s ease-in-out;
-    color: ${(props) => props.theme.fontColor};
-    font-size: 50px;
-    font-weight: bold;
-    letter-spacing: 7px;
-    cursor: pointer;
-  }
-
-  h1 span {
-    transition: 0.2s linear;
-  }
-
-  h1:hover span:nth-child(1) {
-    margin-right: 5px;
-    margin-top: 10px;
-  }
-
-  h1:hover span:nth-child(2):before {
-    content: 'do Seu ';
-  }
-
-  h1:hover span:nth-child(2) {
-    margin-left: 30px;
-  }
-
-  h1:hover span {
-    color: #fff;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
-  }
-
+  h1,
   h2 {
-    animation: lights;
+    font-size: 3.5rem;
+    font-weight: 500;
+    animation: lights 5s 750ms linear infinite;
+    cursor: grab;
+  }
+
+  @keyframes lights {
+    0% {
+      color: hsl(230, 100%, 95%);
+      text-shadow: 0 0 1em hsla(600, 100%, 50%, 0.2), 0 0 0.125em hsla(600, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0), 1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+
+    30% {
+      color: hsl(230, 80%, 90%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    40% {
+      color: hsl(230, 40%, 80%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow: 0 0 1em hsla(620, 100%, 50%, 0.5), 0 0 0.125em hsla(620, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    100% {
+      color: hsl(230, 100%, 95%);
+      text-shadow: 0 0 1em hsla(600, 100%, 50%, 0.2), 0 0 0.125em hsla(620, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
   }
 `
 
 export default function Navbar() {
   return (
     <StyledNavbar>
-      <h1>
-        <span>Banco</span>
-        <span>Boleta</span>
-      </h1>
+      <h1>Banco do Seu Boleta</h1>
       <h2>
         <GiBank />
       </h2>
