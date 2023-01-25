@@ -95,15 +95,17 @@ const Button = styled.button`
   cursor: pointer;
   width: 188px;
   height: 35px;
+  border: 2px solid white;
   border-radius: 20px;
-  background-color: #bf81f9;
+  background-color: hsla(630, 60%, 50%, 0.9);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: 0.3s ease-in-out;
   font-size: 20px;
   font-weight: bold;
-  border: none;
+  margin-top: 20px;
 
   ${(props) => !props.disabled && 'cursor: pointer'}
 
