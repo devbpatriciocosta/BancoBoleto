@@ -4,7 +4,10 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background: linear-gradient(37deg, #0172af, #74fabd, #8776d4, #932ebb);
+  background-size: 300% 300%;
+  animation: gradient-animation 6s ease infinite;
+  color: white;
   box-shadow: 0 0 5px black;
   border-radius: 5px;
   padding: 5px 15px;
@@ -29,6 +32,18 @@ const CardContainer = styled.div`
 
     svg {
       display: none;
+    }
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
     }
   }
 `
