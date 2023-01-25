@@ -54,11 +54,11 @@ const RadioGroup = styled.div`
 
 const FormButton = styled.button`
   padding: 5px 10px;
-  border: none;
+  border: 2px solid white;
   border-radius: 5px;
   font-weight: bold;
-  color: black;
-  background-color: hsla(620, 100%, 50%, 0.5);
+  color: white;
+  background-color: hsla(630, 60%, 50%, 0.9);
 
   cursor: pointer;
 `
