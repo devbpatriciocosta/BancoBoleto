@@ -1,10 +1,12 @@
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import axios from 'axios'
 
 const TitleHeader = styled.div`
   background: linear-gradient(37deg, #0172af, #74fabd, #8776d4, #932ebb);
   background-size: 300% 300%;
   animation: gradient-animation 6s ease infinite;
-  height: 300px;
+  height: 350px;
   text-align: center;
   padding-top: 170px;
   font-size: 46px;
@@ -19,7 +21,7 @@ const TitleHeader = styled.div`
 
   h1 {
     transition: 0.4s ease-in-out;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 500;
     animation: lights 5s 750ms linear infinite;
   }
@@ -72,11 +74,24 @@ const TitleHeader = styled.div`
   }
 `
 
-export default function Header() {
+const StyledLogout = styled.a`
+  cursor: pointer;
+  font-size: 12px;
+`
+
+export default function Header({ username }) {
+  const router = useRouter()
+
+  const handleLogout = async () => {
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/user/logout`)
+    router.push('/loginPage')
+  }
+
   return (
     <>
       <TitleHeader>
-        <h1>Controle Financeiro</h1>
+        <h1>Controle Financeiro de {username}</h1>
+        <StyledLogout onClick={handleLogout}>{username}, gostaria de desconectar?</StyledLogout>
       </TitleHeader>
     </>
   )

@@ -1,3 +1,5 @@
+import { withIronSessionSsr } from 'iron-session/next'
+import { ironConfig } from '../lib/middlewares/ironSession'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -11,7 +13,7 @@ const PageContainer = styled.div`
   height: 100vh;
 `
 
-export default function BankApplication() {
+function BankApplication({ user }) {
   const [data, setData] = useState([])
   const [transactionsList, setTransactionsList] = useState(data)
   const [income, setIncome] = useState(0)
@@ -53,7 +55,7 @@ export default function BankApplication() {
   return (
     <PageContainer>
       <Navbar />
-      <Header />
+      <Header username={user.user} />
       <Resume income={income} expense={expense} total={total} />
       <Form
         handleAdd={handleAdd}
@@ -63,3 +65,24 @@ export default function BankApplication() {
     </PageContainer>
   )
 }
+
+export const getServerSideProps = withIronSessionSsr(async function getServerSideProps({ req }) {
+  const user = req.session.user
+
+  if (!user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/loginPage'
+      }
+    }
+  }
+
+  return {
+    props: {
+      user: user
+    }
+  }
+}, ironConfig)
+
+export default BankApplication
