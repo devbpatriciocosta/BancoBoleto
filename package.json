@@ -15,6 +15,7 @@
     "bcryptjs": "^2.4.3",
     "iron-session": "^6.0.5",
     "joi": "^17.6.0",
+    "moment": "^2.29.1",
     "mongoose": "^6.2.4",
     "next": "^12.1.6",
     "next-connect": "^0.12.2",
@@ -24,7 +25,8 @@
     "react-hook-form": "^7.42.1",
     "react-hook-use-state": "^1.1.0",
     "react-icons": "^4.7.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "swr": "^1.2.2"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.6",
