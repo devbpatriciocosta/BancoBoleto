@@ -9,7 +9,7 @@ import Header from '../src/components/header/Header'
 import Resume from '../src/components/resume/Resume'
 
 const PageContainer = styled.div`
-  background-color: black;
+  background-color: white;
   height: 100vh;
 `
 
