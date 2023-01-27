@@ -6,7 +6,10 @@ const FormContainer = styled.div`
   max-width: 1120px;
   margin: 20px auto;
   width: 98%;
-  background-color: #fff;
+  background: linear-gradient(37deg, #0172af, #74fabd, #8776d4, #932ebb);
+  background-size: 300% 300%;
+  animation: gradient-animation 6s ease infinite;
+  color: white;
   box-shadow: 0 0 5px black;
   border-radius: 5px;
   display: flex;
