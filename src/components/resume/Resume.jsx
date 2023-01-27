@@ -8,7 +8,7 @@ const ResumeContainer = styled.div`
   width: 98%;
   margin: 0 auto;
   display: flex;
-  gap: 20px;
+  gap: 50px;
   margin-top: -50px;
   justify-content: space-around;
   padding-top: 20px;
