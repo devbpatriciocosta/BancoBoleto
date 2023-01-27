@@ -13,6 +13,7 @@ const StyledNavbar = styled.nav`
   padding-top: 5px;
   font-size: 40px;
   gap: 10px;
+
   transition: 0.3s ease-in-out;
 
   h1,
