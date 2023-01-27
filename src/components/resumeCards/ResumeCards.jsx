@@ -9,7 +9,7 @@ const CardContainer = styled.div`
   animation: gradient-animation 6s ease infinite;
   color: white;
   box-shadow: 0 0 5px black;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px 15px;
   width: 30%;
 
