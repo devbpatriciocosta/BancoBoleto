@@ -13,11 +13,9 @@ const TitleHeader = styled.div`
   font-weight: bold;
   color: ${(props) => props.theme.fontColor};
 
-  transition: 0.3s ease-in-out;
+  border-radius: 0 0 50px 50px;
 
-  :hover {
-    box-shadow: 0 0 0 5px hsla(620, 100%, 50%, 0.5);
-  }
+  transition: 0.3s ease-in-out;
 
   h1 {
     transition: 0.4s ease-in-out;
