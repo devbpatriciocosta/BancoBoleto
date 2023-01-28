@@ -13,6 +13,8 @@ const TitleHeader = styled.div`
   font-weight: bold;
   color: ${(props) => props.theme.fontColor};
 
+  box-shadow: 0 0 10px black;
+
   border-radius: 0 0 50px 50px;
 
   transition: 0.3s ease-in-out;
