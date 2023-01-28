@@ -7,10 +7,11 @@ import Form from '../src/components/form/Form'
 import Navbar from '../src/components/layout/navbar/Navbar'
 import Header from '../src/components/header/Header'
 import Resume from '../src/components/resume/Resume'
+import Footer from '../src/components/footer/Footer'
 
 const PageContainer = styled.div`
   background-color: white;
-  height: 100vh;
+  height: 95.8vh;
 `
 
 function BankApplication({ user }) {
@@ -53,16 +54,19 @@ function BankApplication({ user }) {
   }
 
   return (
-    <PageContainer>
-      <Navbar />
-      <Header username={user.user} />
-      <Resume income={income} expense={expense} total={total} />
-      <Form
-        handleAdd={handleAdd}
-        transactionsList={transactionsList}
-        setTransactionsList={setTransactionsList}
-      />
-    </PageContainer>
+    <>
+      <PageContainer>
+        <Navbar />
+        <Header username={user.user} />
+        <Resume income={income} expense={expense} total={total} />
+        <Form
+          handleAdd={handleAdd}
+          transactionsList={transactionsList}
+          setTransactionsList={setTransactionsList}
+        />
+      </PageContainer>
+      <Footer />
+    </>
   )
 }
 
