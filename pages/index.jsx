@@ -64,8 +64,8 @@ function BankApplication({ user }) {
           transactionsList={transactionsList}
           setTransactionsList={setTransactionsList}
         />
+        <Footer />
       </PageContainer>
-      <Footer />
     </>
   )
 }

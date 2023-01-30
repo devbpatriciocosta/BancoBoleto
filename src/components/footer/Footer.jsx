@@ -10,9 +10,18 @@ const StyledFooter = styled.div`
   font-size: 20px;
   border-radius: 50px 50px 0 0;
   color: white;
-  height: 40px;
+  height: 50px;
 
   box-shadow: 0 0 10px black;
+
+  @media (max-width: 425px) {
+    height: 65px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  @media (max-width: 375px) {
+    height: 85px;
+  }
 `
 
 export default function Footer() {
