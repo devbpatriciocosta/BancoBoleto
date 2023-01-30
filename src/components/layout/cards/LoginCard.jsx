@@ -16,8 +16,9 @@ const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  text-align: center;
   background-color: #3a3939;
-  padding: 40px;
+  padding: 30px;
   border-radius: 50px;
   font-size: larger;
   color: ${(props) => props.theme.fontColor};
@@ -80,6 +81,21 @@ const CardContainer = styled.div`
         1em -0.125em 0.5em hsla(40, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
   }
+
+  @media (max-width: 425px) {
+    width: 425px;
+    margin-top: 250px;
+  }
+
+  @media (max-width: 375px) {
+    width: 375px;
+    margin-top: 250px;
+  }
+
+  @media (max-width: 320px) {
+    width: 320px;
+    margin-top: 250px;
+  }
 `
 
 const Form = styled.form`
@@ -89,6 +105,11 @@ const Form = styled.form`
   gap: 10px;
   align-items: center;
   width: 350px;
+
+  @media (max-width: 425px) {
+    width: 300px;
+    margin: 10px 0;
+  }
 `
 
 const Button = styled.button`

@@ -26,6 +26,21 @@ const TitleHeader = styled.div`
     animation: lights 5s 750ms linear infinite;
   }
 
+  @media (max-width: 780px) {
+    height: 400px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 425px) {
+    height: 500px;
+    padding-top: 220px;
+  }
+
+  @media (max-width: 325px) {
+    height: 600px;
+    padding-top: 300px;
+  }
+
   @keyframes lights {
     0% {
       color: hsl(230, 100%, 95%);

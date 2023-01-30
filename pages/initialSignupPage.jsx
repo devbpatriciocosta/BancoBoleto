@@ -7,7 +7,7 @@ const FrontPageContainer = styled.div`
   background: linear-gradient(37deg, #0172af, #74fabd, #8776d4, #932ebb);
   background-size: 300% 300%;
   animation: gradient-animation 6s ease infinite;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +23,10 @@ const FrontPageContainer = styled.div`
     100% {
       background-position: 0% 50%;
     }
+  }
+
+  @media (max-width: 320px) {
+    height: 140vh;
   }
 `
 

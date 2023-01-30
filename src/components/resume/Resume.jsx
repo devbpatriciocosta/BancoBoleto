@@ -4,12 +4,10 @@ import { FaRegArrowAltCircleUp, FaRegArrowAltCircleDown, FaDollarSign } from 're
 import ResumeCards from '../resumeCards/ResumeCards'
 
 const ResumeContainer = styled.div`
-  max-width: 1120px;
-  width: 98%;
   margin: 0 auto;
   display: flex;
-  gap: 50px;
-  margin-top: -50px;
+  gap: 20px;
+  margin-top: -60px;
   justify-content: space-around;
   padding-top: 20px;
 `

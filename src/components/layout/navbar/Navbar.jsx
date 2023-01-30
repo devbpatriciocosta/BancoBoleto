@@ -9,7 +9,7 @@ const StyledNavbar = styled.nav`
   flex-direction: column;
   color: ${(props) => props.theme.fontColor};
   width: 100%;
-  position: fixed;
+  position: absolute;
   padding-top: 5px;
   font-size: 40px;
   gap: 10px;
@@ -22,6 +22,16 @@ const StyledNavbar = styled.nav`
     font-weight: 500;
     animation: lights 5s 750ms linear infinite;
     cursor: grab;
+  }
+
+  @media (max-width: 780px) {
+    text-align: center;
+    position: absolute;
+  }
+
+  @media (max-width: 425px) {
+    text-align: center;
+    position: absolute;
   }
 
   @keyframes lights {

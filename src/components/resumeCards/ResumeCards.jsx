@@ -20,7 +20,7 @@ const CardContainer = styled.div`
   }
 
   @media (max-width: 750px) {
-    width: 20%;
+    width: 30%;
 
     p {
       font-size: 12px;

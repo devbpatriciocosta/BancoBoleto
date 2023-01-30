@@ -32,7 +32,8 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #000;
+  text-align: center;
+  background-color: #3a3939;
   padding: 30px;
   border-radius: 50px;
   font-size: larger;
@@ -95,6 +96,22 @@ const Card = styled.div`
       text-shadow: 0 0 1em hsla(600, 100%, 50%, 0.2), 0 0 0.125em hsla(620, 100%, 60%, 0.3),
         1em -0.125em 0.5em hsla(40, 100%, 60%, 0), -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
     }
+  }
+
+  @media (max-width: 425px) {
+    width: 425px;
+    margin-top: 200px;
+  }
+
+  @media (max-width: 375px) {
+    width: 375px;
+    margin-top: 240px;
+  }
+
+  @media (max-width: 320px) {
+    width: 320px;
+    margin-top: 280px;
+    font-size: 20px;
   }
 `
 
