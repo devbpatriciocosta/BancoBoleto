@@ -9,6 +9,7 @@ const StyledGrid = styled.table`
   box-shadow: 0 0 5px #ccc;
   border-radius: 5px;
   max-width: 1120px;
+  height: 36.3vh;
   margin: 20px auto;
 
   transition: 0.3s ease-in-out;
