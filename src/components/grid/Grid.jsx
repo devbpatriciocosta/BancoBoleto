@@ -4,7 +4,7 @@ import GridItem from '../gridItem/GridItem'
 
 const StyledGrid = styled.table`
   width: 98%;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.fontColor};
   padding: 20px;
   box-shadow: 0 0 5px #ccc;
   border-radius: 5px;

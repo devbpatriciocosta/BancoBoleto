@@ -17,7 +17,7 @@ const CardContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  background-color: #3a3939;
+  background-color: ${(props) => props.theme.black};
   padding: 30px;
   border-radius: 50px;
   font-size: larger;
@@ -119,7 +119,7 @@ const Button = styled.button`
   border: 2px solid white;
   border-radius: 20px;
   background-color: hsla(630, 60%, 50%, 0.9);
-  color: white;
+  color: ${(props) => props.theme.fontColor};
   display: flex;
   align-items: center;
   justify-content: center;

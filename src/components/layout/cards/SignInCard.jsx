@@ -203,29 +203,6 @@ export default function WelcomeCard() {
     }
   }
 
-  // const [loadingButton, setLoadingButton] = useState(false)
-
-  // const handleForm = async (data) => {
-  //   try {
-  //     setLoadingButton(true)
-  //     const { status } = await axios.post(
-  //       `${process.env.NEXT_PUBLIC_API_URL}/api/user/signIn`,
-  //       data
-  //     )
-  //     if (status === 201) {
-  //       router.push('/')
-  //     }
-  //   } catch (err) {
-  //     if (err.response.data.code === 11000) {
-  //       setError(err.response.data.duplicatedKey, {
-  //         type: 'duplicated'
-  //       })
-  //     }
-  //   } finally {
-  //     setLoadingButton(false)
-  //   }
-  // }
-
   return (
     <>
       <CardContainer>

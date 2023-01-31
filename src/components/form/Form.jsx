@@ -9,7 +9,7 @@ const FormContainer = styled.div`
   background: linear-gradient(37deg, #0172af, #74fabd, #8776d4, #932ebb);
   background-size: 300% 300%;
   animation: gradient-animation 6s ease infinite;
-  color: white;
+  color: ${(props) => props.theme.fontColor};
   box-shadow: 0 0 5px black;
   border-radius: 5px;
   display: flex;
@@ -60,7 +60,7 @@ const FormButton = styled.button`
   border: 2px solid white;
   border-radius: 5px;
   font-weight: bold;
-  color: white;
+  color: ${(props) => props.theme.fontColor};
   background-color: hsla(630, 60%, 50%, 0.9);
 
   cursor: pointer;

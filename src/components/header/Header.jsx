@@ -92,7 +92,7 @@ const TitleHeader = styled.div`
 const StyledLogout = styled.a`
   cursor: pointer;
   font-size: 12px;
-  background-color: hsla(620, 100%, 50%, 0.5);
+  background-color: ${(props) => props.theme.borderColor};
   border: 2px solid white;
   border-radius: 10px;
   padding: 10px;

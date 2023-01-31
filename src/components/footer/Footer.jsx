@@ -9,7 +9,7 @@ const StyledFooter = styled.div`
   font-weight: 400;
   font-size: 20px;
   border-radius: 50px 50px 0 0;
-  color: white;
+  color: ${(props) => props.theme.fontColor};
   height: 50px;
 
   box-shadow: 0 0 10px black;
